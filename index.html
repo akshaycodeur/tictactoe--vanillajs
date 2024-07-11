@@ -75,13 +75,19 @@
       // scoreboard changes
 
       let buttonX = document.querySelector('#choiceX');
-      let buttonY = document.querySelector('#choiceY');
+      let buttonO = document.querySelector('#choiceO');
       let userChoice;
-      (buttonZ) => {
-        buttonZ.addEventListener('onClick, function(buttonZ){
-          userChoice = buttonZ.innerHtml
-        } ')
-       }
+      let functionAssign = function (button) {
+        userChoice = button.innerText;
+        console.log(`user choice is ${userChoice}`);
+      };
+
+      buttonX.addEventListener('click', function () {
+        functionAssign(buttonX);
+      });
+      buttonO.addEventListener('click', function () {
+        functionAssign(buttonO);
+      });
     </script>
   </body>
 </html>
