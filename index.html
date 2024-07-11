@@ -13,31 +13,31 @@
       <h1 class="text-3xl font-bold mb-4 text-center">Tic Tac Toe</h1>
       <div class="grid grid-cols-3 gap-2 w-64 mx-auto">
         <div
-          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer playGrid"
         ></div>
         <div
-          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer playGrid"
         ></div>
         <div
-          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer playGrid"
         ></div>
         <div
-          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer playGrid"
         ></div>
         <div
-          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer playGrid"
         ></div>
         <div
-          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer playGrid"
         ></div>
         <div
-          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer playGrid"
         ></div>
         <div
-          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer playGrid"
         ></div>
         <div
-          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer playGrid"
         ></div>
       </div>
       <div class="w-64 mx-auto mt-5 text-center">
@@ -77,9 +77,25 @@
       let buttonX = document.querySelector('#choiceX');
       let buttonO = document.querySelector('#choiceO');
       let userChoice;
+      let computerChoice;
+      let playGrids = document.querySelectorAll('.playGrid');
       let functionAssign = function (button) {
         userChoice = button.innerText;
         console.log(`user choice is ${userChoice}`);
+        if (userChoice === 'X') {
+          computerChoice = 'O';
+          buttonO.setAttribute('disabled', true);
+          buttonO.classList.remove('bg-amber-300');
+          buttonO.classList.remove('hover:bg-amber-600');
+          buttonO.classList.add('bg-gray-300');
+        } else {
+          computerChoice = 'X';
+          buttonX.setAttribute('disabled', true);
+          buttonX.classList.remove('bg-amber-300');
+          buttonX.classList.remove('hover:bg-amber-600');
+          buttonX.classList.add('bg-gray-300');
+        }
+        console.log(`Computer chose ${computerChoice}`);
       };
 
       buttonX.addEventListener('click', function () {
@@ -88,6 +104,19 @@
       buttonO.addEventListener('click', function () {
         functionAssign(buttonO);
       });
+      function enterCharacter(playGrid) {
+        playGrid.addEventListener('click', () => {
+          playGrid.innerText = userChoice;
+          console.log(playGrid);
+          let computerGridGenerator = Math.ceil(Math.random() * 9) - 1;
+          let computerGridChoice = playGrids[computerGridGenerator];
+          console.log(computerGridGenerator);
+          if (computerGridChoice.innerText !== userChoice) {
+            computerGridChoice.innerText = computerChoice;
+          }
+        });
+      }
+      playGrids.forEach(enterCharacter);
     </script>
   </body>
 </html>
