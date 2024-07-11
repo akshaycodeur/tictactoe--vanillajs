@@ -5,44 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
+
   <body>
-    <div class="container mx-auto py-10 bg-slate-200 justify-center">
-      <div class="app max-w-xl mx-auto">
-        <div class="rowtop flex bg-red-100 w-full justify-center space-x-10">
-          <div class="box box1 px-10 text-8xl">o</div>
-          <div
-            class="box box2 border-l-2 border-r-2 border-gray-800 px-10 text-8xl"
-          >
-            o
-          </div>
-          <div class="box box3 px-10 text-8xl">o</div>
-        </div>
+    <div
+      class="container mx-auto py-10 justify-center bg-white dark:bg-slate-800"
+    >
+      <h1 class="text-3xl font-bold mb-4 text-center">Tic Tac Toe</h1>
+      <div class="grid grid-cols-3 gap-2 w-64 mx-auto">
         <div
-          class="rowmid flex border-t-2 border-b-2 border-gray-800 bg-red-100 w-full justify-center space-x-10"
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+        ></div>
+        <div
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+        ></div>
+        <div
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+        ></div>
+        <div
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+        ></div>
+        <div
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+        ></div>
+        <div
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+        ></div>
+        <div
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+        ></div>
+        <div
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+        ></div>
+        <div
+          class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer"
+        ></div>
+      </div>
+      <div class="w-64 mx-auto mt-5 text-center">
+        <h4>Make a selection</h4>
+        <div class="choice">
+          <button
+            id="choiceX"
+            class="bg-amber-300 w-20 h-20 rounded text-slate-800 uppercase hover:bg-amber-600"
+          >
+            x
+          </button>
+          <button
+            id="choiceO"
+            class="bg-amber-300 w-20 h-20 rounded text-slate-800 uppercase hover:bg-amber-600"
+          >
+            o
+          </button>
+        </div>
+        <button
+          class="mt-6 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-700"
         >
-          <div class="box box1 px-10 text-8xl">o</div>
-          <div
-            class="box box2 border-l-2 border-r-2 border-gray-800 px-10 text-8xl"
-          >
-            o
-          </div>
-          <div class="box box3 px-10 text-8xl">o</div>
-        </div>
-        <div class="rowbot flex bg-red-100 w-full justify-center space-x-10">
-          <div class="box box1 px-10 text-8xl">o</div>
-          <div
-            class="box box2 border-l-2 border-r-2 border-gray-800 px-10 text-8xl"
-          >
-            o
-          </div>
-          <div class="box box3 px-10 text-8xl">o</div>
-        </div>
+          Restart Game
+        </button>
       </div>
     </div>
 
     <script>
-      //prompt user to chose O or X
-      // let userChoice = prompt('Are you going to be O or X ?');
+      // User Chooses X or Y
+      // Computer Chooses opposite
+      // User Clicks one of the grids
+      // His Choice is entered there
+      // Computer selects one of the empty grids and enters its choice
+      // game continues until every grid is filled
+      // game ends: win? draw? lose?
+      // scoreboard changes
+
+      let buttonX = document.querySelector('#choiceX');
+      let buttonY = document.querySelector('#choiceY');
+      let userChoice;
+      (buttonZ) => {
+        buttonZ.addEventListener('onClick, function(buttonZ){
+          userChoice = buttonZ.innerHtml
+        } ')
+       }
     </script>
   </body>
 </html>
