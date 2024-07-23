@@ -11,7 +11,7 @@
       class="container mx-auto py-10 justify-center bg-white dark:bg-slate-800"
     >
       <h1 class="text-3xl font-bold mb-4 text-center">Tic Tac Toe</h1>
-      <div class="grid grid-cols-3 gap-2 w-64 mx-auto">
+      <div class="grid grid-cols-3 gap-2 w-64 mx-auto hidden gameGrids">
         <div
           class="w-20 h-20 bg-gray-200 flex items-center justify-center text-2xl font-bold cursor-pointer playGrid"
         ></div>
@@ -74,6 +74,7 @@
       // game ends: win? draw? lose?
       // scoreboard changes
 
+      let gameGrids = document.querySelector('.gameGrids');
       let buttonX = document.querySelector('#choiceX');
       let buttonO = document.querySelector('#choiceO');
       let userChoice;
@@ -88,12 +89,16 @@
           buttonO.classList.remove('bg-amber-300');
           buttonO.classList.remove('hover:bg-amber-600');
           buttonO.classList.add('bg-gray-300');
+          gameGrids.classList.remove('hidden');
+          gameGrids.classList.add('h-64');
         } else {
           computerChoice = 'X';
           buttonX.setAttribute('disabled', true);
           buttonX.classList.remove('bg-amber-300');
           buttonX.classList.remove('hover:bg-amber-600');
           buttonX.classList.add('bg-gray-300');
+          gameGrids.classList.remove('hidden');
+          gameGrids.classList.add('h-64');
         }
         console.log(`Computer chose ${computerChoice}`);
       };
@@ -113,6 +118,12 @@
           console.log(computerGridGenerator);
           if (computerGridChoice.innerText !== userChoice) {
             computerGridChoice.innerText = computerChoice;
+          } else {
+            computerGridGenerator = Math.ceil(Math.random() * 9) - 1;
+            computerGridChoice = playGrids[computerGridGenerator];
+            if (computerGridChoice.innerText !== userChoice) {
+              computerGridChoice.innerText = computerChoice;
+            }
           }
         });
       }
